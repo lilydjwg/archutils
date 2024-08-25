@@ -1,0 +1,32 @@
+# generated files
+NoExtract = */fonts.dir
+NoExtract = */fonts.scale
+NoExtract = usr/lib/gdk-pixbuf-2.0/*/loaders.cache
+NoExtract = usr/lib/gio/modules/giomodule.cache
+NoExtract = usr/lib/graphviz/config6
+NoExtract = usr/lib/gtk-2.0/*/immodules.cache
+NoExtract = usr/lib/gtk-3.0/*/immodules.cache
+NoExtract = usr/lib/gtk-4.0/4.0.0/media/giomodule.cache
+NoExtract = usr/lib/gtk-4.0/4.0.0/printbackends/giomodule.cache
+NoExtract = usr/lib/locale/locale-archive
+NoExtract = usr/lib32/gdk-pixbuf-2.0/*/loaders.cache
+NoExtract = usr/share/applications/mimeinfo.cache
+NoExtract = usr/share/gdb/python/*.pyc
+NoExtract = usr/share/glib-2.0/gdb/*.pyc
+NoExtract = usr/share/glib-2.0/schemas/gschemas.compiled
+NoExtract = usr/share/icons/*/icon-theme.cache
+NoExtract = usr/share/info/dir
+NoExtract = usr/share/mime/*
+NoExtract = usr/share/vim/vimfiles/doc/tags
+NoExtract = usr/lib/ghc-*/package.conf.d/*.conf
+NoExtract = usr/lib/udev/hwdb.bin
+NoExtract = usr/lib/gconv/gconv-modules.cache
+
+# my files
+NoExtract = usr/local/*
+NoExtract = usr/bin/Xwayland.real
+NoExtract = usr/lib/netctl/wpa.orig
+NoExtract = usr/share/webapps/mediawiki/includes/search/SearchPostgres.php.orig
+NoExtract = usr/lib/zsh/*/zsh/subreap.so
+NoExtract = usr/lib/zhcon/input/lilywb.mb
+

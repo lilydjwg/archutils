@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+
+import re
+import fnmatch
+import sys
+import argparse
+
+def get_noextract(config):
+  f = config
+  ret = [l.split(None, 2)[-1].strip() for l in f if l.startswith('NoExtract')]
+  return ret
+
+def compile_noextract(noe):
+  pos = []
+  neg = []
+  for x in noe:
+    if x[0] == '!':
+      cat = neg
+      x = x[1:]
+    else:
+      cat = pos
+    x = fnmatch.translate(x).rsplit(r'\Z', 1)[0]
+    cat.append(x)
+
+  pos = re.compile('|'.join(pos))
+  neg = re.compile('|'.join(neg))
+  return pos, neg
+
+def main(config, f):
+  noe = get_noextract(config)
+  config.close()
+
+  pos, neg = compile_noextract(noe)
+  # print('-', pos.pattern)
+  # print('+', neg.pattern)
+
+  for line in f:
+    line = line.strip().lstrip('/')
+    if not neg.fullmatch(line) and pos.fullmatch(line):
+      continue
+    print('/' + line)
+
+if __name__ == '__main__':
+  parser = argparse.ArgumentParser(
+    description = "Filter filename list by NoExtract instructions",
+  )
+  parser.add_argument('config', type = argparse.FileType('r'),
+                      nargs = '?',
+                      default = '/etc/pacman.conf',
+                      help = 'read from this config file')
+  args = parser.parse_args()
+
+  main(args.config, sys.stdin)
