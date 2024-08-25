@@ -21,6 +21,7 @@ NoExtract = usr/share/vim/vimfiles/doc/tags
 NoExtract = usr/lib/ghc-*/package.conf.d/*.conf
 NoExtract = usr/lib/udev/hwdb.bin
 NoExtract = usr/lib/gconv/gconv-modules.cache
+NoExtract = usr/lib/modules/.old/*
 
 # my files
 NoExtract = usr/local/*
