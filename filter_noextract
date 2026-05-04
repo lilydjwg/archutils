@@ -27,8 +27,8 @@ def compile_noextract(noe):
   return pos, neg
 
 def main(config, f):
-  noe = get_noextract(config)
-  config.close()
+  with open(config) as config_file:
+    noe = get_noextract(config_file)
 
   pos, neg = compile_noextract(noe)
   # print('-', pos.pattern)
@@ -44,7 +44,7 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser(
     description = "Filter filename list by NoExtract instructions",
   )
-  parser.add_argument('config', type = argparse.FileType('r'),
+  parser.add_argument('config', type = str,
                       nargs = '?',
                       default = '/etc/pacman.conf',
                       help = 'read from this config file')
